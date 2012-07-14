@@ -1,0 +1,307 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EBAC426815B0F17B008B2107 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBAC426715B0F17B008B2107 /* Cocoa.framework */; };
+		EBAC427215B0F17B008B2107 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EBAC427015B0F17B008B2107 /* InfoPlist.strings */; };
+		EBAC427415B0F17B008B2107 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EBAC427315B0F17B008B2107 /* main.m */; };
+		EBAC427815B0F17B008B2107 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = EBAC427615B0F17B008B2107 /* Credits.rtf */; };
+		EBAC427B15B0F17B008B2107 /* EMTLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EBAC427A15B0F17B008B2107 /* EMTLAppDelegate.m */; };
+		EBAC427E15B0F17C008B2107 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBAC427C15B0F17C008B2107 /* MainMenu.xib */; };
+		EBAC428615B0F1C5008B2107 /* IWGlobalHotkey.m in Sources */ = {isa = PBXBuildFile; fileRef = EBAC428515B0F1C5008B2107 /* IWGlobalHotkey.m */; };
+		EBAC428815B0F2CC008B2107 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBAC428715B0F2CC008B2107 /* Carbon.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		EBAC426315B0F17B008B2107 /* IWGlobalHotkeys.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IWGlobalHotkeys.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBAC426715B0F17B008B2107 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		EBAC426A15B0F17B008B2107 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		EBAC426B15B0F17B008B2107 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		EBAC426C15B0F17B008B2107 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EBAC426F15B0F17B008B2107 /* IWGlobalHotkeys-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IWGlobalHotkeys-Info.plist"; sourceTree = "<group>"; };
+		EBAC427115B0F17B008B2107 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EBAC427315B0F17B008B2107 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EBAC427515B0F17B008B2107 /* IWGlobalHotkeys-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IWGlobalHotkeys-Prefix.pch"; sourceTree = "<group>"; };
+		EBAC427715B0F17B008B2107 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		EBAC427915B0F17B008B2107 /* EMTLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EMTLAppDelegate.h; sourceTree = "<group>"; };
+		EBAC427A15B0F17B008B2107 /* EMTLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EMTLAppDelegate.m; sourceTree = "<group>"; };
+		EBAC427D15B0F17C008B2107 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		EBAC428415B0F1C5008B2107 /* IWGlobalHotkey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IWGlobalHotkey.h; sourceTree = SOURCE_ROOT; };
+		EBAC428515B0F1C5008B2107 /* IWGlobalHotkey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IWGlobalHotkey.m; sourceTree = SOURCE_ROOT; };
+		EBAC428715B0F2CC008B2107 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = System/Library/Frameworks/Carbon.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EBAC426015B0F17B008B2107 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBAC428815B0F2CC008B2107 /* Carbon.framework in Frameworks */,
+				EBAC426815B0F17B008B2107 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EBAC425815B0F17A008B2107 = {
+			isa = PBXGroup;
+			children = (
+				EBAC428715B0F2CC008B2107 /* Carbon.framework */,
+				EBAC426D15B0F17B008B2107 /* IWGlobalHotkeys */,
+				EBAC426615B0F17B008B2107 /* Frameworks */,
+				EBAC426415B0F17B008B2107 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EBAC426415B0F17B008B2107 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EBAC426315B0F17B008B2107 /* IWGlobalHotkeys.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EBAC426615B0F17B008B2107 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EBAC426715B0F17B008B2107 /* Cocoa.framework */,
+				EBAC426915B0F17B008B2107 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EBAC426915B0F17B008B2107 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EBAC426A15B0F17B008B2107 /* AppKit.framework */,
+				EBAC426B15B0F17B008B2107 /* CoreData.framework */,
+				EBAC426C15B0F17B008B2107 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		EBAC426D15B0F17B008B2107 /* IWGlobalHotkeys */ = {
+			isa = PBXGroup;
+			children = (
+				EBAC428415B0F1C5008B2107 /* IWGlobalHotkey.h */,
+				EBAC428515B0F1C5008B2107 /* IWGlobalHotkey.m */,
+				EBAC427915B0F17B008B2107 /* EMTLAppDelegate.h */,
+				EBAC427A15B0F17B008B2107 /* EMTLAppDelegate.m */,
+				EBAC427C15B0F17C008B2107 /* MainMenu.xib */,
+				EBAC426E15B0F17B008B2107 /* Supporting Files */,
+			);
+			path = IWGlobalHotkeys;
+			sourceTree = "<group>";
+		};
+		EBAC426E15B0F17B008B2107 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EBAC426F15B0F17B008B2107 /* IWGlobalHotkeys-Info.plist */,
+				EBAC427015B0F17B008B2107 /* InfoPlist.strings */,
+				EBAC427315B0F17B008B2107 /* main.m */,
+				EBAC427515B0F17B008B2107 /* IWGlobalHotkeys-Prefix.pch */,
+				EBAC427615B0F17B008B2107 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EBAC426215B0F17B008B2107 /* IWGlobalHotkeys */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EBAC428115B0F17C008B2107 /* Build configuration list for PBXNativeTarget "IWGlobalHotkeys" */;
+			buildPhases = (
+				EBAC425F15B0F17B008B2107 /* Sources */,
+				EBAC426015B0F17B008B2107 /* Frameworks */,
+				EBAC426115B0F17B008B2107 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IWGlobalHotkeys;
+			productName = IWGlobalHotkeys;
+			productReference = EBAC426315B0F17B008B2107 /* IWGlobalHotkeys.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EBAC425A15B0F17A008B2107 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = EMTL;
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "Never Ending Radical Developer";
+			};
+			buildConfigurationList = EBAC425D15B0F17A008B2107 /* Build configuration list for PBXProject "IWGlobalHotkeys" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = EBAC425815B0F17A008B2107;
+			productRefGroup = EBAC426415B0F17B008B2107 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EBAC426215B0F17B008B2107 /* IWGlobalHotkeys */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EBAC426115B0F17B008B2107 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBAC427215B0F17B008B2107 /* InfoPlist.strings in Resources */,
+				EBAC427815B0F17B008B2107 /* Credits.rtf in Resources */,
+				EBAC427E15B0F17C008B2107 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EBAC425F15B0F17B008B2107 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBAC427415B0F17B008B2107 /* main.m in Sources */,
+				EBAC427B15B0F17B008B2107 /* EMTLAppDelegate.m in Sources */,
+				EBAC428615B0F1C5008B2107 /* IWGlobalHotkey.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EBAC427015B0F17B008B2107 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EBAC427115B0F17B008B2107 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		EBAC427615B0F17B008B2107 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EBAC427715B0F17B008B2107 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		EBAC427C15B0F17C008B2107 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EBAC427D15B0F17C008B2107 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EBAC427F15B0F17C008B2107 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		EBAC428015B0F17C008B2107 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		EBAC428215B0F17C008B2107 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "IWGlobalHotkeys/IWGlobalHotkeys-Prefix.pch";
+				INFOPLIST_FILE = "IWGlobalHotkeys/IWGlobalHotkeys-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		EBAC428315B0F17C008B2107 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "IWGlobalHotkeys/IWGlobalHotkeys-Prefix.pch";
+				INFOPLIST_FILE = "IWGlobalHotkeys/IWGlobalHotkeys-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EBAC425D15B0F17A008B2107 /* Build configuration list for PBXProject "IWGlobalHotkeys" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EBAC427F15B0F17C008B2107 /* Debug */,
+				EBAC428015B0F17C008B2107 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EBAC428115B0F17C008B2107 /* Build configuration list for PBXNativeTarget "IWGlobalHotkeys" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EBAC428215B0F17C008B2107 /* Debug */,
+				EBAC428315B0F17C008B2107 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EBAC425A15B0F17A008B2107 /* Project object */;
+}
