@@ -13,6 +13,7 @@
 
 NSString *osTypeToFourCharCode(OSType inType);
 OSType fourCharCodeToOSType(NSString* inCode);
+OSStatus HotKeyHandler(EventHandlerCallRef nextHandler,EventRef theEvent, void *userData);
 
 
 static int _IWGLOBALHOTKEYS_COUNTER;
@@ -36,10 +37,12 @@ static NSMutableArray *_IWGLOBALHOTKEYS_REUSABLE_SIGNATURE_QUEUE;
 @synthesize key = _key;
 @synthesize modifiers = _modifiers;
 
+
 + (IWGlobalHotkey *)globalHotKeyWithKey:(NSString *)key modifiers:(NSArray *)modifiers target:(id)target action:(SEL)selector
 {
     return [[IWGlobalHotkey alloc] initWithKey:key modifiers:modifiers target:target action:selector];
 }
+
 
 - (id)initWithKey:(NSString *)key modifiers:(NSArray *)modifiers target:(id)target action:(SEL)selector
 {
@@ -76,7 +79,7 @@ static NSMutableArray *_IWGLOBALHOTKEYS_REUSABLE_SIGNATURE_QUEUE;
     }
     #ifdef DEBUG
     else {
-        NSLog(@"Unable to set GlobalHotKey key to %@. Keycode not found.", key);
+        NSLog(@"Unable to set hot key to %@. Keycode not found.", key);
     }
     #endif
 }
@@ -92,7 +95,7 @@ static NSMutableArray *_IWGLOBALHOTKEYS_REUSABLE_SIGNATURE_QUEUE;
         }
         else {
             #ifdef DEBUG
-            NSLog(@"Unable to set GlobalHotKey modifiers to %@. Unknown modifier: %@", modifiers, modifier);
+            NSLog(@"Unable to set hot key modifiers to %@. Unknown modifier: %@", modifiers, modifier);
             #endif
             return;
         }
@@ -110,7 +113,7 @@ static NSMutableArray *_IWGLOBALHOTKEYS_REUSABLE_SIGNATURE_QUEUE;
     // Sanity check the values passed in.
     if (!target || !selector) {
         #ifdef DEBUG
-        NSLog(@"Unable to set the target and action for the GlobalHotKey because one or both are nil.");
+        NSLog(@"Unable to set the target and action for the hot key (%@) because one or both are nil.", [self symbolicCommand]);
         #endif
         return NO;
     }
@@ -121,7 +124,7 @@ static NSMutableArray *_IWGLOBALHOTKEYS_REUSABLE_SIGNATURE_QUEUE;
     // We'll get a nil value here if the selector does not exist for the target.
     if (!methodSignature) {
         #ifdef DEBUG
-        NSLog(@"Unable to set the target and action for the GlobalHotKey because the specified selector does not exist for the target.");
+        NSLog(@"Unable to set the target and action for the hot key (%@) because the specified selector does not exist for the target.", [self symbolicCommand]);
         #endif
         return NO;
     }
@@ -138,6 +141,7 @@ static NSMutableArray *_IWGLOBALHOTKEYS_REUSABLE_SIGNATURE_QUEUE;
     return YES;
     
 }
+
 
 
 - (BOOL)installHotKey
@@ -164,15 +168,18 @@ static NSMutableArray *_IWGLOBALHOTKEYS_REUSABLE_SIGNATURE_QUEUE;
     }
     else {
         #ifdef DEBUG
-        if (!_key) NSLog(@"Unable to install the hotkey because it's missing a key");
-        if (!_modifiers || !_modifierCode) NSLog(@"Unable to install the hotkey because it's missing it's modifier key(s).");
-        if (!_invocation) NSLog(@"Unable to install the hotkey because no valid target and action to call back to have been specified.");
+        if (!_key) NSLog(@"Unable to install the hotkey (%@) because it's missing a key", [self symbolicCommand]);
+        if (!_modifiers || !_modifierCode) NSLog(@"Unable to install the hotkey (%@) because it's missing it's modifier key(s).", [self symbolicCommand]);
+        if (!_invocation) NSLog(@"Unable to install the hotkey (%@) because no valid target and action to call back to have been specified.", [self symbolicCommand]);
         #endif
         return NO;
     }
     
     
 }
+
+
+
 
 - (BOOL)removeHotKey
 {
@@ -190,7 +197,7 @@ static NSMutableArray *_IWGLOBALHOTKEYS_REUSABLE_SIGNATURE_QUEUE;
         }
         #ifdef DEBUG
         else {
-            NSLog(@"There was an error unregistering your GlobalHotKey");
+            NSLog(@"There was an error unregistering your GlobalHotKey %@", [self symbolicCommand]);
         }
         #endif
     }
@@ -198,9 +205,80 @@ static NSMutableArray *_IWGLOBALHOTKEYS_REUSABLE_SIGNATURE_QUEUE;
     return NO;
 }
 
+
+
 - (BOOL)installed
 {
     return (_hotKeyRef != nil);
+}
+
+
+
+- (NSString *)description
+{
+    
+    NSString *isInstalled = (self.installed) ? @"Installed" : @"Not Installed";
+    
+    return [NSString stringWithFormat:@"Global Hotkey %@ (%@)", [self symbolicCommand], isInstalled];
+}
+
+
+
+
+- (NSString *)symbolicCommand
+{
+    NSArray *modifierPrecidence = [NSArray arrayWithObjects:IWGLOBALHOTKEY_CONTROL, IWGLOBALHOTKEY_OPTION, IWGLOBALHOTKEY_SHIFT, IWGLOBALHOTKEY_COMMAND, nil];
+    NSDictionary *symbols = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"^", @"⌥", @"⇧", @"⌘", nil] 
+                                                        forKeys:modifierPrecidence];
+    
+    NSString *symbolString = @"";
+    
+    if (_modifiers) {
+        for (int i = 0; i < modifierPrecidence.count; i++) {
+            if ([_modifiers indexOfObject:[modifierPrecidence objectAtIndex:i]] != NSNotFound) {
+                symbolString = [symbolString stringByAppendingString:[symbols objectForKey:[modifierPrecidence objectAtIndex:i]]];
+            }
+        }
+    }
+    
+    if (_key) {
+        symbolString = [symbolString stringByAppendingString:_key];
+    }
+    
+    return symbolString;
+}
+
+
+
+- (NSString *)stringCommand
+{
+    NSArray *modifierPrecidence = [NSArray arrayWithObjects:IWGLOBALHOTKEY_CONTROL, IWGLOBALHOTKEY_OPTION, IWGLOBALHOTKEY_SHIFT, IWGLOBALHOTKEY_COMMAND, nil];
+    NSDictionary *words = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"Control", @"Option", @"Shift", @"Command", nil] 
+                                                      forKeys:modifierPrecidence];
+    
+    NSString *wordString = @"";
+    
+    if (_modifiers) {
+        for (int i = 0; i < modifierPrecidence.count; i++) {
+            if ([_modifiers indexOfObject:[modifierPrecidence objectAtIndex:i]] != NSNotFound) {
+                wordString = [wordString stringByAppendingString:[words objectForKey:[modifierPrecidence objectAtIndex:i]]];
+                wordString = [wordString stringByAppendingString:@"-"];
+            }
+        }
+    }
+    
+    if (_modifiers) {
+        for (int i = 0; i < _modifiers.count; i++) {
+            
+        }
+    }
+    
+    if (_key) {
+        wordString = [wordString stringByAppendingString:_key];
+    }
+    
+    
+    return wordString;
 }
 
 
@@ -276,7 +354,7 @@ OSStatus HotKeyHandler(EventHandlerCallRef nextHandler,EventRef theEvent, void *
     }
     #ifdef DEBUG
     else {
-        NSLog(@"No invocation found for %i", hotKeyID.id);
+        NSLog(@"No invocation found for hot key id %i", hotKeyID.id);
     }
     #endif
     

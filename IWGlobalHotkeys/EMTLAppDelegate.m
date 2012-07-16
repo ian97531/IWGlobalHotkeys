@@ -31,41 +31,43 @@
                                             action:@selector(thirdMethodCallback)];
     
     if ([_hotKey1 installHotKey]) {
-        NSLog(@"Installing the command-option-B hotkey");
+        NSLog(@"Installing the %@ hotkey", _hotKey1.stringCommand);
     }
     
     if([_hotKey2 installHotKey]) {
-        NSLog(@"Installing the command-4 hotkey");
+        NSLog(@"Installing the %@ hotkey", _hotKey2.stringCommand);
     }
     
     if ([_hotKey3 installHotKey]) {
-        NSLog(@"Installing the control-4 hotkey");
+        NSLog(@"Installing the %@ hotkey", _hotKey3.stringCommand);
     }
     
 }
 
 - (void)aMethodCallback
 {
-    NSLog(@"You pushed command-option-B");
+    NSLog(@"You pushed %@", _hotKey1.symbolicCommand);
     if (_hotKey2.installed) {
-        NSLog(@"Removing the command-4 hotkey");
+        NSLog(@"Removing the %@ hotkey", _hotKey2.stringCommand);
         [_hotKey2 removeHotKey];
+        NSLog(@"%@", _hotKey2);
     }
     else {
-        NSLog(@"Installing the command-4 hotkey");
+        NSLog(@"Installing the %@ hotkey", _hotKey2.stringCommand);
         [_hotKey2 installHotKey];
+        NSLog(@"%@", _hotKey2);
     }
     
 }
 
 - (void)anotherMethodCallback
 {
-    NSLog(@"You pushed command-4");
+    NSLog(@"You pushed %@", _hotKey2.symbolicCommand);
 }
 
 - (void)thirdMethodCallback
 {
-    NSLog(@"You pushed control-4");
+    NSLog(@"You pushed %@", _hotKey3.stringCommand);
 }
 
 @end

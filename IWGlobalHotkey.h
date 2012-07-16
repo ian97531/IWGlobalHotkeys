@@ -33,13 +33,21 @@
 
 @property (nonatomic, strong) NSString *key;
 @property (nonatomic, strong) NSArray *modifiers;
+@property (nonatomic, readonly) BOOL installed;
 
 + (IWGlobalHotkey *)globalHotKeyWithKey:(NSString *)key modifiers:(NSArray *)modifiers target:(id)target action:(SEL)selector;
 - (id)initWithKey:(NSString *)key modifiers:(NSArray *)modifiers target:(id)target action:(SEL)selector;
+
+- (void)setKey:(NSString *)key;
+- (void)setModifiers:(NSArray *)modifiers;
 - (BOOL)setTarget:(id)target action:(SEL)selector;
+
 - (BOOL)installHotKey;
 - (BOOL)removeHotKey;
 - (BOOL)installed;
+- (NSString *)description;
+- (NSString *)symbolicCommand;
+- (NSString *)stringCommand;
 
 
 
