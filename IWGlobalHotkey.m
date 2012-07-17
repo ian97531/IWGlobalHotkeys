@@ -587,7 +587,7 @@ OSType fourCharCodeToOSType(NSString* inCode)
             #ifdef DEBUG
             NSLog(@"Unknown string for keycode: %i", keyCode);
             #endif
-            return @"";
+            return nil;
     }
 }
 
