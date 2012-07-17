@@ -267,12 +267,6 @@ static NSMutableArray *_IWGLOBALHOTKEYS_REUSABLE_SIGNATURE_QUEUE;
         }
     }
     
-    if (_modifiers) {
-        for (int i = 0; i < _modifiers.count; i++) {
-            
-        }
-    }
-    
     if (_key) {
         wordString = [wordString stringByAppendingString:_key];
     }
