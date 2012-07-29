@@ -138,7 +138,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = EMTL;
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0440;
 				ORGANIZATIONNAME = "Never Ending Radical Developer";
 			};
 			buildConfigurationList = EBAC425D15B0F17A008B2107 /* Build configuration list for PBXProject "IWGlobalHotkeys" */;
@@ -262,6 +262,7 @@
 		EBAC428215B0F17C008B2107 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IWGlobalHotkeys/IWGlobalHotkeys-Prefix.pch";
 				INFOPLIST_FILE = "IWGlobalHotkeys/IWGlobalHotkeys-Info.plist";
@@ -273,6 +274,7 @@
 		EBAC428315B0F17C008B2107 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IWGlobalHotkeys/IWGlobalHotkeys-Prefix.pch";
 				INFOPLIST_FILE = "IWGlobalHotkeys/IWGlobalHotkeys-Info.plist";
@@ -300,6 +302,7 @@
 				EBAC428315B0F17C008B2107 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

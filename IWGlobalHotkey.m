@@ -14,6 +14,7 @@
 NSString *osTypeToFourCharCode(OSType inType);
 OSType fourCharCodeToOSType(NSString* inCode);
 OSStatus HotKeyHandler(EventHandlerCallRef nextHandler,EventRef theEvent, void *userData);
+static dispatch_queue_t cacheQueue;
 
 
 static int _IWGLOBALHOTKEYS_COUNTER;
@@ -52,6 +53,7 @@ static NSMutableArray *_IWGLOBALHOTKEYS_REUSABLE_SIGNATURE_QUEUE;
         _IWGLOBALHOTKEYS_COUNTER = 0;
         _IWGLOBALHOTKEYS_INVOCATIONS = [NSMutableDictionary dictionaryWithCapacity:10];
         _IWGLOBALHOTKEYS_REUSABLE_SIGNATURE_QUEUE = [NSMutableArray arrayWithCapacity:10];
+        cacheQueue = dispatch_queue_create("com.elemental.IWGLOBALHOTKEY", NULL);
     });
     
     self = [super init];
@@ -282,7 +284,6 @@ static NSMutableArray *_IWGLOBALHOTKEYS_REUSABLE_SIGNATURE_QUEUE;
     
     __block int theID;
     __block OSType sig;
-    dispatch_queue_t cacheQueue = dispatch_queue_create("com.elemental.IWGLOBALHOTKEY", NULL);
     dispatch_sync(cacheQueue, ^{
         
         if (_IWGLOBALHOTKEYS_REUSABLE_SIGNATURE_QUEUE.count) {
@@ -318,7 +319,6 @@ static NSMutableArray *_IWGLOBALHOTKEYS_REUSABLE_SIGNATURE_QUEUE;
 
 - (void)releaseHotKeyID:(EventHotKeyID)hotKeyID
 {
-    dispatch_queue_t cacheQueue = dispatch_queue_create("com.elemental.IWGLOBALHOTKEY", NULL);
     dispatch_sync(cacheQueue, ^{
     
         [_IWGLOBALHOTKEYS_INVOCATIONS removeObjectForKey:osTypeToFourCharCode(hotKeyID.signature)];
@@ -337,7 +337,6 @@ OSStatus HotKeyHandler(EventHandlerCallRef nextHandler,EventRef theEvent, void *
     
     // Locate the invocation we have stored for that particular hotkey
     __block NSInvocation *theInvocation;
-    dispatch_queue_t cacheQueue = dispatch_queue_create("com.elemental.IWGLOBALHOTKEY", NULL);
     dispatch_sync(cacheQueue, ^{
         theInvocation = [_IWGLOBALHOTKEYS_INVOCATIONS objectForKey:osTypeToFourCharCode(hotKeyID.signature)];
     });
